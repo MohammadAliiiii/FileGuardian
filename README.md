@@ -1,59 +1,158 @@
-# Revu: A Version Control System
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileGuardian - Duplication Detection System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0056b3;
+      margin-top: 30px;
+    }
+    code, pre {
+      background: #f4f4f4;
+      padding: 6px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    pre {
+      overflow-x: auto;
+      display: block;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background: #222;
+      color: #fff;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FileGuardian 🛡️</h1>
+    <p>A Duplication Detection System (DDS) that saves server bandwidth and storage</p>
+  </header>
 
-Revu is a version control system designed to help you manage changes to your projects over time. With Revu, you can track changes, collaborate with others, and maintain a record of your project's evolution.
+  <main>
+    <h2>🚀 Features</h2>
+    <ul>
+      <li>🔍 Duplicate Detection – Stops users from uploading the same file multiple times</li>
+      <li>⚡ Efficient Storage – Saves only file metadata and hash, not the actual file</li>
+      <li>📉 Bandwidth Optimization – Blocks redundant uploads before transfer is completed</li>
+      <li>📊 Instant Feedback – Alerts users if a file already exists</li>
+      <li>🖥️ Simple Web Interface – Built with EJS templates for easy interaction</li>
+    </ul>
 
-## Features
+    <h2>🛠️ Tech Stack</h2>
+    <ul>
+      <li><b>Backend</b>: Express.js</li>
+      <li><b>Frontend</b>: EJS</li>
+      <li><b>Database</b>: MongoDB</li>
+      <li><b>Hashing</b>: SHA-256</li>
+    </ul>
 
-* **Track changes**: Revu allows you to track changes to your projects, including who made the changes, when they were made, and what changes were made.
-* **Collaborate with others**: Revu makes it easy to collaborate with others on your projects. You can invite others to join your project, and they can make changes and track their own progress.
-* **Manage multiple branches**: Revu allows you to manage multiple branches of your project, making it easy to experiment with different ideas and approaches.
-* **Visualize your project's history**: Revu provides a visual representation of your project's history, making it easy to see how your project has evolved over time.
-* **Integrate with your existing workflow**: Revu can be integrated with your existing workflow, making it easy to incorporate version control into your daily routine.
+    <h2>📂 Project Structure</h2>
+    <pre><code>
+FileGuardian/
+│── src/
+│   ├── routes/        # Express routes
+│   ├── views/         # EJS templates
+│   ├── models/        # MongoDB schemas
+│   ├── utils/         # Hashing & helper functions
+│   └── app.js         # Main Express server
+│
+│── package.json
+│── README.md
+    </code></pre>
 
-## Getting Started
+    <h2>⚙️ Installation & Setup</h2>
+    <ol>
+      <li>Clone the repo:
+        <pre><code>git clone https://github.com/your-username/FileGuardian.git
+cd FileGuardian</code></pre>
+      </li>
+      <li>Install dependencies:
+        <pre><code>npm install</code></pre>
+      </li>
+      <li>Create a <code>.env</code> file with:
+        <pre><code>MONGO_URI=your_mongodb_connection_string
+PORT=3000</code></pre>
+      </li>
+      <li>Run the server:
+        <pre><code>npm start</code></pre>
+        Visit: <code>http://localhost:3000</code>
+      </li>
+    </ol>
 
-1. **Clone the repository**: Clone the Revu repository using Git: `git clone https://github.com/your-username/revu.git`
-2. **Install the dependencies**: Install the dependencies required by Revu using npm: `npm install`
-3. **Start the server**: Start the Revu server using npm: `node index.js`
-4. **Open your web browser**: Open your web browser and navigate to `http://localhost:3000`
+    <h2>📖 How It Works</h2>
+    <ol>
+      <li>User uploads a file.</li>
+      <li>FileGuardian calculates the SHA-256 hash.</li>
+      <li>The hash is checked in MongoDB:
+        <ul>
+          <li>✅ Not found → metadata stored, upload allowed</li>
+          <li>❌ Found → upload blocked, user notified</li>
+        </ul>
+      </li>
+    </ol>
 
-## Configuration
+    <h2>📌 Roadmap</h2>
+    <ul>
+      <li>[ ] Add user authentication</li>
+      <li>[ ] Cloud storage integration</li>
+      <li>[ ] Admin dashboard for duplicates</li>
+      <li>[ ] API endpoints for external services</li>
+    </ul>
 
-Revu can be configured to suit your needs. Here are some configuration options:
+    <h2>🤝 Contributing</h2>
+    <p>Contributions, issues, and feature requests are welcome. Fork and submit PRs!</p>
 
-* **Set the repository URL**: You can set the repository URL in the `config.json` file.
-* **Set the branch**: You can set the branch in the `config.json` file.
-* **Set the username and password**: You can set the username and password in the `config.json` file.
+    <h2>📜 License</h2>
+    <p>MIT License © 2025 <b>Your Name</b></p>
+  </main>
 
-## Usage
-
-Here's an example of how to use Revu:
-
-1. **Create a new project**: Create a new project by clicking on the "New Project" button.
-2. **Add files to the project**: Add files to the project by clicking on the "Add File" button.
-3. **Make changes to the files**: Make changes to the files and commit them using the "Commit" button.
-4. **Push changes to the remote repository**: Push changes to the remote repository using the "Push" button.
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to Revu, please fork the repository and submit a pull request.
-
-## Known Issues
-
-* **Issue 1**: There is a known issue with the Revu server not starting properly on some systems.
-* **Issue 2**: There is a known issue with the Revu client not connecting to the server properly.
-
-## Troubleshooting
-
-* **Error 1**: If you encounter an error when starting the Revu server, check the error message for details.
-* **Error 2**: If you encounter an error when connecting to the Revu server, check the network connection and try again.
-
-## Roadmap
-
-* **Feature 1**: We plan to add support for multiple repositories in the future.
-* **Feature 2**: We plan to add support for more collaboration features in the future.
-
-## Acknowledgments
-
-* **Contributor 1**: We would like to thank Contributor 1 for their contributions to Revu.
-* **Contributor 2**: We would like to thank Contributor 2 for their contributions to Revu.
+  <div class="footer">
+    <p>Made with ❤️ using Express, EJS, and MongoDB</p>
+  </div>
+</body>
+</html>
