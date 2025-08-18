@@ -78,4 +78,4 @@ PORT=3000</pre>
 <p>Contributions, issues, and feature requests are welcome. Fork the project, make changes, and submit a PR 🚀</p>
 
 <h2>📜 License</h2>
-<p>MIT License © 2025 <b>Your Name</b></p>
+<p>MIT License © 2025 <b>Mohammad Ali</b></p>
